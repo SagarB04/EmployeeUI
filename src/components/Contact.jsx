@@ -1,7 +1,7 @@
 const Contact = () => {
   return (
     <div className="flex flex-col">
-      <div className="text-slate-800 text-6xl text-center font-bold p-6">Get In Touch</div>
+      <div className="text-slate-500 text-6xl text-center font-bold p-6">Get In Touch</div>
       <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 place-items-center p-4 bg-slate-300">
 
         <div className="flex flex-col items-center justify-center space-y-1.5 text-center size-72">

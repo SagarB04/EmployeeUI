@@ -1,11 +1,47 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import AddEmployee from "./components/AddEmployee"
+import Contact from "./components/Contact"
+import Departments from "./components/Departments"
+import Employees from "./components/Employees"
+import Home from "./components/Home"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
+
+
+const route = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "employees",
+        element: <Employees />,
+      },
+      {
+        path: "departments",
+        element: <Departments />,
+      },
+      {
+        path: "addemployee",
+        element: <AddEmployee />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      }
+    ]
+  }
+])
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={route} />
   </React.StrictMode>,
 )

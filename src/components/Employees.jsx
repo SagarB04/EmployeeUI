@@ -89,64 +89,64 @@ const Employees = () => {
 
               <div className="p-4 bg-gray-200 w-full">
 
-                <table className="m-auto w-full text-center  ">
+                <table className="m-auto w-full text-center table-fixed ">
                   <tr>
                     <td className="font-semibold text-right">Employee Id</td>
-                    <td className="font-semibold px-2">:</td>
-                    <td className="text-left">{emp.employeeId}</td>
+                    <td className="font-semibold">:</td>
+                    <td className="text-left break-all">{emp.employeeId}</td>
                   </tr>
                   <tr>
                     <td className="font-semibold text-right">First Name</td>
                     <td className="font-semibold">:</td>
-                    <td className="text-left">{emp.firstName}</td>
+                    <td className="text-left break-all">{emp.firstName}</td>
                   </tr>
                   <tr>
                     <td className="font-semibold text-right">Lasr Name</td>
                     <td className="font-semibold">:</td>
-                    <td className="text-left">{emp.lastName}</td>
+                    <td className="text-left break-all">{emp.lastName}</td>
                   </tr>
                   <tr>
                     <td className="font-semibold text-right">Email</td>
                     <td className="font-semibold">:</td>
-                    <td className="text-left">emdddddil</td>
+                    <td className="text-left break-all">sass</td>
                   </tr>
                   <tr>
                     <td className="font-semibold text-right">Phone</td>
                     <td className="font-semibold">:</td>
-                    <td className="text-left">{emp.phone}</td>
+                    <td className="text-left break-all">{emp.phone}</td>
                   </tr>
                   <tr>
                     <td className="font-semibold text-right">Hire Date</td>
                     <td className="font-semibold">:</td>
-                    <td className="text-left">hiredddddddate</td>
+                    <td className="text-left break-all">hiredddddddjfjfjfjfate</td>
                   </tr>
                   <tr>
                     <td className="font-semibold text-right">Job Id</td>
                     <td className="font-semibold">:</td>
-                    <td className="text-left">{"dfhsd"}</td>
+                    <td className="text-left break-all">{"dfhsd"}</td>
                   </tr>
                   <tr>
                     <td className="font-semibold text-right">Salary</td>
                     <td className="font-semibold">:</td>
-                    <td className="text-left">{emp.salary}</td>
+                    <td className="text-left break-all">{emp.salary}</td>
                   </tr>
                   <tr>
                     <td className="font-semibold text-right">Manager Id</td>
                     <td className="font-semibold">:</td>
-                    <td className="text-left">{"mange"}</td>
+                    <td className="text-left break-all">{"mange"}</td>
                   </tr>
                   <tr>
                     <td className="font-semibold text-right">Department Id</td>
                     <td className="font-semibold">:</td>
-                    <td className="text-left">{emp.departmentId}</td>
+                    <td className="text-left break-all">{emp.departmentId}</td>
                   </tr>
                 </table>
 
               </div>
 
               <div className="flex justify-between p-2 font-semibold rounded-b-lg space-x-2 bg-slate-300 border border-t-slate-300">
-                <button className="text-green-700">Update</button>
-                <button className="text-rose-700">Delete</button>
+                <button className="text-green-700 hover:underline">Update</button>
+                <button className="text-rose-700 hover:underline">Delete</button>
               </div>
             </div>
           )}

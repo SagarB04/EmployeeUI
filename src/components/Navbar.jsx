@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
+      <nav className="bg-white border-gray-200 dark:bg-gray-900 w-full sticky top-0 z-10">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-6 py-4">
           <a href="https://github.com/SagarB04/EmployeeUI" target="_blank" className="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" className="h-8" alt="Flowbite Logo" />

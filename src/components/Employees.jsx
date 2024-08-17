@@ -33,10 +33,10 @@ const Employees = () => {
 
 
   return (
-    <div className="">
+    <div className="bg-gray-200 h-auto">
 
       <div className="relative overflow-x-auto shadow-md">
-        <table className="w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400 text-center rounded-lg overflow-hidden shadow-xl shadow-blue-950">
+        <table className="w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400 text-center overflow-hidden shadow-xl shadow-blue-950 h-auto">
           <caption className="p-5 text-lg font-bold text-left rtl:text-right text-gray-600 bg-gray-200">
             Employees List
           </caption>

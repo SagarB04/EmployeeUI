@@ -1,37 +1,47 @@
 import { useEffect, useState } from "react"
+import { NavLink } from "react-router-dom";
 import Popup from "reactjs-popup";
 
 const Employees = () => {
 
-  const [list, setList] = useState([
-    {
-      id: 100,
-      fname: "Sagar",
-      lname: "Barman",
-      email: "SKINGdcfvsd",
-      phone: "515.123.4567",
-      hireDate: "2003-06-17",
-      jobId: "AD_PRES",
-      salary: 24000,
-      managerId: null,
-      deptId: 90
-    }
-
-
-  ]);
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getAllEmployee();
-  }, [list])
+
+    // setInterval(() => {
+    //   if (loading) {
+        getAllEmployee();
+        console.log("running")
+      // }
+    //   else {
+    //     console.log("clear interval")
+    //     clearInterval();
+    //   }
+    // }, 2000)
+  }, [])
 
 
   const getAllEmployee = async () => {
-    let a = await fetch("http://localhost:8090/employees");
-    let data = await a.json();
-    setList(data);
+    let resp = await fetch("http://localhost:8090/employees");
+    let data = await resp.json();
+    try {
+      if (resp.ok) {
+        setLoading(false)
+        setList(data);
+      }
+    } catch (error) {
+      console.log('Error fetching employees:', resp.statusText);
+    }
   }
 
-
+  if (loading) {
+    return (
+      <div className="bg-gray-200 h-auto text-gray-800 text-center p-5">
+        Loading...
+      </div>
+    )
+  }
   return (
     <div className="bg-gray-200 h-auto">
 
@@ -150,7 +160,7 @@ const Employees = () => {
                           </div>
 
                           <div className="flex justify-between p-2 font-semibold rounded-b-lg space-x-2 bg-slate-300 border border-t-slate-300">
-                            <button className="text-green-700 hover:underline">Update</button>
+                            <NavLink to={`/addemployee/${emp.id}`} className="text-green-700 hover:underline">Update</NavLink>
                             <button className="text-rose-700 hover:underline">Delete</button>
                           </div>
                         </div>

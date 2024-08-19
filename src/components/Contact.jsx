@@ -17,19 +17,19 @@ const Contact = () => {
 
         <div className="flex flex-col items-center justify-center space-y-1.5 text-center size-72">
           <svg className="h-24 w-24 text-green-900" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />  <path d="M15 7a2 2 0 0 1 2 2" />  <path d="M15 3a6 6 0 0 1 6 6" /></svg>
-          <h1 className="text-2xl font-bold text-slate-800" >Phone</h1>
-          <h4 className="text-xl font-semibold text-slate-700">Primary</h4>
+          <h1 className="text-2xl font-bold text-slate-800" >hPone</h1>
+          <h4 className="text-l font-semibold text-slate-700">Primary</h4>
           <h5 className="font-medium text-slate-700">+917247467282</h5>
-          <h4 className="text-xl font-semibold text-slate-700">Other</h4>
+          <h4 className="text-l font-semibold text-slate-700">Other</h4>
           <h5 className="font-medium text-slate-700">+917974140785</h5>
         </div>
 
         <div className="flex flex-col items-center justify-center text-center space-y-1.5 size-72">
           <svg className="h-24 w-24 text-rose-900" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4" />  <line x1="8" y1="9" x2="16" y2="9" />  <line x1="8" y1="13" x2="14" y2="13" /></svg>
           <h1 className="text-2xl font-bold text-slate-800" >Email</h1>
-          <h4 className="text-xl font-semibold text-slate-700">Primary</h4>
+          <h4 className="text-l font-semibold text-slate-700">Primary</h4>
           <h5 className="font-medium text-slate-700">barmansagar01@gmail.com</h5>
-          <h4 className="text-xl font-semibold text-slate-700">Other</h4>
+          <h4 className="text-l font-semibold text-slate-700">Other</h4>
           <h5 className="font-medium text-slate-700">7247467282s@gmail.com</h5>
         </div>
 

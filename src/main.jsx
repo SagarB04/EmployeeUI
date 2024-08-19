@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import AddEmployee from "./components/AddEmployee"
 import Contact from "./components/Contact"
-import Departments from "./components/Departments"
 import Employees from "./components/Employees"
 import Home from "./components/Home"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -22,10 +21,6 @@ const route = createBrowserRouter([
       {
         path: "employees",
         element: <Employees />,
-      },
-      {
-        path: "departments",
-        element: <Departments />,
       },
       {
         path: "addemployee/:id?",

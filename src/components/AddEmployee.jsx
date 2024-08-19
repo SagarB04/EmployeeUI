@@ -6,21 +6,20 @@ const AddEmployee = () => {
 
   const { id } = useParams();
   const [employee, setEmployee] = useState({});
-
   const [toggleId, setToggle] = useState(false);
   const navigate = useNavigate();
 
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit, reset, trigger } = useForm({mode: 'onChange'});
 
   //getting the employee details by id
   const fetchEmployee = async () => {
 
     try {
       let resp = await fetch(`http://localhost:8090/employee?id=${id}`);
-      let b = await resp.json();
       if (resp.ok) {
-        console.log(b);
+        let b = await resp.json();
         setEmployee(b);
+        reset(b)
       }
 
     } catch (error) {
@@ -34,6 +33,7 @@ const AddEmployee = () => {
       setToggle(true)
       fetchEmployee();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   //saving the employee details
@@ -64,13 +64,20 @@ const AddEmployee = () => {
     }
   };
 
+  const handleUpdate = async (data) => {
+
+    await trigger();
+    await onSubmit(data);
+  };
+
+
   return (
     <div className="p-5">
 
 
-      <h1 className="max-w-md md:max-w-screen-lg m-auto px-2 py-5 text-lg font-bold text-left rtl:text-right text-gray-600 bg-gray-200">Add New Employee</h1>
+      <h1 className="max-w-md md:max-w-screen-lg m-auto px-2 py-5 text-lg font-bold text-left rtl:text-right text-gray-600 bg-gray-200">{toggleId?"Update Employee":"Add New Employee"}</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="max-w-md md:max-w-screen-lg mx-auto p-2">
+      <form onSubmit={handleSubmit(handleUpdate)} className="max-w-md md:max-w-screen-lg mx-auto p-2">
 
         <div className="grid md:grid-cols-2 md:gap-6">
 

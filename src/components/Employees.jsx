@@ -4,41 +4,52 @@ import Popup from "reactjs-popup";
 
 const Employees = () => {
 
+
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-
-    // setInterval(() => {
-    //   if (loading) {
-        getAllEmployee();
-        console.log("running")
-      // }
-    //   else {
-    //     console.log("clear interval")
-    //     clearInterval();
-    //   }
-    // }, 2000)
-  }, [])
-
+  const [message, setMessage] = useState("Loading...");
 
   const getAllEmployee = async () => {
-    let resp = await fetch("http://localhost:8090/employees");
-    let data = await resp.json();
     try {
-      if (resp.ok) {
-        setLoading(false)
-        setList(data);
+      let resp = await fetch("http://localhost:8090/employees");
+      let data = await resp.json();
+      if (!resp.ok) {
+        setMessage("Something went Wrong...")
       }
+      setLoading(false)
+      setList(data)
+
     } catch (error) {
-      console.log('Error fetching employees:', resp.statusText);
+      console.log('Error fetching employees:' + error);
+      setMessage(`Server Down! Refresh page after some time...`)
     }
+  }
+
+  useEffect(() => {
+    getAllEmployee();
+  }, [list])
+
+  const deleteEmployee = async (id, closePopup) => {
+    try {
+      let resp = await fetch(`http://localhost:8090/employee/delete?id=${id}`, {
+        method: 'DELETE'
+      })
+      if (!resp.ok) {
+        setMessage("Delete not Successful")
+      }
+      closePopup();
+      getAllEmployee();
+    } catch (error) {
+      setMessage("Error Occured")
+    }
+
+
   }
 
   if (loading) {
     return (
       <div className="bg-gray-200 h-auto text-gray-800 text-center p-5">
-        Loading...
+        {message}
       </div>
     )
   }
@@ -116,7 +127,7 @@ const Employees = () => {
                                 <td className="text-left break-all">{emp.fname}</td>
                               </tr>
                               <tr>
-                                <td className="font-semibold text-right">Lasr Name</td>
+                                <td className="font-semibold text-right">Last Name</td>
                                 <td className="font-semibold">:</td>
                                 <td className="text-left break-all">{emp.lname}</td>
                               </tr>
@@ -161,7 +172,7 @@ const Employees = () => {
 
                           <div className="flex justify-between p-2 font-semibold rounded-b-lg space-x-2 bg-slate-300 border border-t-slate-300">
                             <NavLink to={`/addemployee/${emp.id}`} className="text-green-700 hover:underline">Update</NavLink>
-                            <button className="text-rose-700 hover:underline">Delete</button>
+                            <button onClick={()=> deleteEmployee(emp.id, close)} className="text-rose-700 hover:underline">Delete</button>
                           </div>
                         </div>
                       )}

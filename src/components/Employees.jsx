@@ -21,7 +21,7 @@ const Employees = () => {
 
     } catch (error) {
       console.log('Error fetching employees:' + error);
-      setMessage(`Server Down! Refresh page after some time...`)
+      setMessage(`Server Down, Try again later!`)
     }
   }
 
@@ -48,7 +48,7 @@ const Employees = () => {
 
   if (loading) {
     return (
-      <div className="bg-gray-200 h-auto text-gray-800 text-center p-5">
+      <div className="max-w-md md:max-w-screen-lg mx-auto my-5 bg-gray-500 font-semibold h-auto text-gray-100 text-center p-5">
         {message}
       </div>
     )

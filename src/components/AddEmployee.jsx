@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 
+
 const AddEmployee = () => {
 
   const { id } = useParams();
   const [employee, setEmployee] = useState({});
   const [toggleId, setToggle] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(false)
   const navigate = useNavigate();
 
-  const { register, formState: { errors }, handleSubmit, reset, trigger } = useForm({mode: 'onChange'});
+  const { register, formState: { errors }, handleSubmit, reset, trigger } = useForm({ mode: 'onChange' });
 
   //getting the employee details by id
   const fetchEmployee = async () => {
@@ -55,12 +58,14 @@ const AddEmployee = () => {
         navigate("/employees");
       } else {
         console.log('Error saving employee-', resp.statusText);
-        alert("Employee not added");
+        setMessage('Employee not added, Try again!')
+        setError(true)
       }
 
     } catch (error) {
       console.log('Error saving employee:', error);
-      alert("Server is Down");
+      setMessage('Server Down, Try again later!')
+      setError(true)
     }
   };
 
@@ -72,10 +77,13 @@ const AddEmployee = () => {
 
 
   return (
+
     <div className="p-5">
+      <div className={`max-w-md md:max-w-screen-lg m-auto bg-gray-500 font-semibold h-auto text-gray-100 text-center p-5 ${error ? '' : 'hidden'}`}>
+        {message}
+      </div>
 
-
-      <h1 className="max-w-md md:max-w-screen-lg m-auto px-2 py-5 text-lg font-bold text-left rtl:text-right text-gray-600 bg-gray-200">{toggleId?"Update Employee":"Add New Employee"}</h1>
+      <h1 className="max-w-md md:max-w-screen-lg m-auto px-2 py-5 text-lg font-bold text-left rtl:text-right text-gray-600 bg-gray-200">{toggleId ? "Update Employee" : "Add New Employee"}</h1>
 
       <form onSubmit={handleSubmit(handleUpdate)} className="max-w-md md:max-w-screen-lg mx-auto p-2">
 
@@ -220,19 +228,24 @@ const AddEmployee = () => {
 
           {/* jobid */}
           <div className="relative z-0 w-full mb-5 group">
-            <input {...register("jobId", {
+            <select {...register("jobId", {
               required: '*Job id is required',
-              pattern: {
-                value: /^[a-zA-Z_]*$/,
-                message: "*Job id can only contains alphabets",
-              },
 
-            })}
-              aria-invalid={errors.jobId ? "true" : "false"}
-              type="text" id="floating_jobid" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " defaultValue={employee.jobId} />
+            })} id="select_jobid" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer">
+              <option value="">Select</option>
+              <option hidden selected={toggleId} >{employee.jobId}</option>
+              <option>MK_MAN</option>
+              <option>ST_CLERK</option>
+              <option>ST_MAN</option>
+              <option>PU_CLERK</option>
+              <option>PU_MAN</option>
+              <option>SA_REP</option>
+              <option>SA_MAN</option>
+            </select>
+            <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" htmlFor="select_jobid">
+              Job ID
+            </label>
             {errors.jobId?.message && <p className="text-red-600 font-semibold text-sm" role="alert">{errors.jobId.message}</p>}
-
-            <label htmlFor="floating_jobid" className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Job ID</label>
           </div>
 
           {/* manager id */}

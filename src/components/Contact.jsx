@@ -1,11 +1,26 @@
+import { useNavigate } from "react-router-dom";
+
 const Contact = () => {
+  
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col">
-      <div className="text-slate-500 text-6xl text-center font-bold p-6">Get In Touch</div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 place-items-center p-4 bg-slate-300">
+      
+      <div className="flex justify-between">
+        <div onClick={() => navigate("/addemployee")} className="flex w-fit space-x-1 font-semibold text-blue-800 hover:text-blue-900 hover:cursor-pointer active:font-bold p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+          </svg>
+          <span>Back</span>
+        </div>
+      </div>
+
+      <div className="text-slate-500 text-4xl text-center font-bold p-6">Get In Touch</div>
+      <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 place-items-center p-4 bg-slate-300 h-full">
 
         <div className="flex flex-col items-center justify-center space-y-1.5 text-center size-72">
-          <svg className="h-24 w-24 text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="h-20 w-20 text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
@@ -16,8 +31,8 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center space-y-1.5 text-center size-72">
-          <svg className="h-24 w-24 text-green-900" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />  <path d="M15 7a2 2 0 0 1 2 2" />  <path d="M15 3a6 6 0 0 1 6 6" /></svg>
-          <h1 className="text-2xl font-bold text-slate-800" >hPone</h1>
+          <svg className="h-20 w-20 text-green-900" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />  <path d="M15 7a2 2 0 0 1 2 2" />  <path d="M15 3a6 6 0 0 1 6 6" /></svg>
+          <h1 className="text-2xl font-bold text-slate-800" >Phone</h1>
           <h4 className="text-l font-semibold text-slate-700">Primary</h4>
           <h5 className="font-medium text-slate-700">+917247467282</h5>
           <h4 className="text-l font-semibold text-slate-700">Other</h4>
@@ -25,7 +40,7 @@ const Contact = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center text-center space-y-1.5 size-72">
-          <svg className="h-24 w-24 text-rose-900" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4" />  <line x1="8" y1="9" x2="16" y2="9" />  <line x1="8" y1="13" x2="14" y2="13" /></svg>
+          <svg className="h-20 w-20 text-rose-900" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4" />  <line x1="8" y1="9" x2="16" y2="9" />  <line x1="8" y1="13" x2="14" y2="13" /></svg>
           <h1 className="text-2xl font-bold text-slate-800" >Email</h1>
           <h4 className="text-l font-semibold text-slate-700">Primary</h4>
           <h5 className="font-medium text-slate-700">barmansagar01@gmail.com</h5>
@@ -33,8 +48,8 @@ const Contact = () => {
           <h5 className="font-medium text-slate-700">7247467282s@gmail.com</h5>
         </div>
 
-        <div className="flex flex-col items-center justify-center text-center space-y-1.5 size-72 lg:col-span-3 md:col-span-3">
-          <svg className="h-24 w-24 text-blue-900 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="flex flex-col items-center justify-center text-center space-y-1.5 size-72  lg:col-span-3 md:col-span-3">
+          <svg className="h-20 w-20 text-blue-900 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
 

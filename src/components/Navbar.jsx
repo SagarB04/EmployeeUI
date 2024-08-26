@@ -6,6 +6,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleFunction = () => {
+
     setIsOpen(!isOpen);
   }
 
@@ -27,11 +28,11 @@ const Navbar = () => {
           <div className={`${isOpen ? 'block' : 'hidden'} w-full lg:block lg:w-auto`} id="navbar-default">
             <ul className="font-medium flex flex-col p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700">
               <li>
-                <NavLink to={"/"} onClick={toggleFunction} className="block py-2 px-3 text-white bg-blue-700 rounded lg:bg-transparent lg:text-blue-700 lg:p-0 dark:text-white lg:dark:text-blue-500" aria-current="page">Home</NavLink>
-                {/* className={(e)=>{return e.isActive?"red":""}} > */}
+                <NavLink to={"/"} onClick={toggleFunction} className={`block py-2 px-3 rounded  lg:border-0 lg:p-0 text-white lg:hover:text-blue-500 hover:bg-gray-700 hover:text-white lg:hover:bg-transparent`} aria-current="page">Home</NavLink>
+
               </li>
               <li>
-                <NavLink to={"/employees"} onClick={toggleFunction} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">Employees</NavLink>
+                <NavLink to={"/employees"} onClick={toggleFunction} className={`block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent `}>Employees</NavLink>
               </li>
               <li>
                 <NavLink to={"/addemployee"} onClick={toggleFunction} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-white lg:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent">Add Employee</NavLink>

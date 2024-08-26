@@ -7,6 +7,7 @@ import Employees from "./components/Employees"
 import Home from "./components/Home"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
+import EmployeeData from './components/EmployeeData.jsx'
 
 
 const route = createBrowserRouter([
@@ -29,7 +30,11 @@ const route = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
-      }
+      },
+      {
+        path: "employee/:id",
+        element: <EmployeeData/>,
+      },
     ]
   }
 ])
